@@ -1,1 +1,784 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Harshika Cake Shop</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f4f4f4;\n        }\n        header {\n            background: #ff8c00;\n            color: white;\n            padding: 10px 20px;\n            text-align: center;\n        }\n        section {\n            padding: 20px;\n        }\n        .cake {\n            border: 1px solid #ccc;\n            border-radius: 5px;\n            margin: 10px;\n            padding: 10px;\n            background: white;\n        }\n    </style>\n</head>\n<body>\n    <header>\n        <h1>Welcome to Harshika Cake Shop</h1>\n    </header>\n    <section>\n        <h2>Our Delicious Cakes</h2>\n        <div class="cake">\n            <h3>Chocolate Cake</h3>\n            <p>Rich chocolate cake topped with ganache.</p>\n        </div>\n        <div class="cake">\n            <h3>Vanilla Cake</h3>\n            <p>Classic vanilla sponge with creamy frosting.</p>\n        </div>\n        <div class="cake">\n            <h3>Red Velvet Cake</h3>\n            <p>Decadent red velvet layered with cream cheese frosting.</p>\n        </div>\n    </section>\n    <footer>\n        <p>&copy; 2026 Harshika Cake Shop</p>\n    </footer>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Harshika Cake Shop – Premium cakes in Shindkheda. Order on WhatsApp +91 8390802055"/>
+<title>Harshika Cake Shop – Baked with Love</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--rose:#c9727a;--rose-d:#a0484f;--rose-bg:#fff0f1;--gold:#c9954a;--gold-bg:#fdf8ee;--cream:#fdf6ee;--cream-d:#f5e8d8;--choco:#3e1a08;--choco-l:#7a3a20;--white:#fff;--txt:#2c1208;--txt-m:#7a4020;--txt-l:#b07040;--txt-mu:#c89878;--border:#edd8c8;--ok:#4caf74;--err:#e05050;--s0:0 2px 8px rgba(62,26,8,.08);--s1:0 4px 16px rgba(62,26,8,.11);--s2:0 8px 32px rgba(62,26,8,.14);--s3:0 18px 56px rgba(62,26,8,.18);--sr:0 8px 28px rgba(201,114,122,.30);--r1:8px;--r2:14px;--r3:22px;--r4:32px;--rf:999px;--t:.3s ease;--fd:'Cormorant Garamond',serif;--fs:'Dancing Script',cursive;--fb:'Nunito',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--txt);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}
+button{cursor:pointer;font-family:var(--fb);border:none;outline:none;background:none}
+input,textarea,select{font-family:var(--fb);outline:none;width:100%}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:var(--rose);border-radius:4px}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.hidden{display:none!important}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:var(--rf);font-size:.91rem;font-weight:700;transition:var(--t);border:none;cursor:pointer;white-space:nowrap}
+.btn-p{background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;box-shadow:var(--sr)}
+.btn-p:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--rose);border:2px solid var(--rose)}
+.btn-o:hover{background:var(--rose);color:#fff}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-lg{padding:15px 36px;font-size:1rem}
+.btn-block{width:100%;justify-content:center}
+.btn-sm{padding:8px 18px;font-size:.82rem}
+/* Toast */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--choco);color:#fff;padding:13px 20px;border-radius:var(--r3);font-size:.87rem;font-weight:600;box-shadow:var(--s3);z-index:9999;transform:translateY(100px);opacity:0;transition:.4s ease;display:flex;align-items:center;gap:9px;pointer-events:none;max-width:280px}
+#toast.show{transform:translateY(0);opacity:1}
+#toast.ok{border-left:4px solid var(--ok)}
+#toast.er{border-left:4px solid var(--err)}
+/* WA Float */
+.wa-float{position:fixed;bottom:80px;right:20px;z-index:998;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-size:1.5rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:var(--t);animation:wap 2.5s infinite;text-decoration:none}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.4)}50%{box-shadow:0 6px 20px rgba(37,211,102,.4),0 0 0 10px rgba(37,211,102,.1)}}
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:var(--t)}
+.nav.up{background:rgba(253,246,238,.97);backdrop-filter:blur(16px);box-shadow:var(--s0)}
+.nav-c{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-i{font-size:1.8rem}
+.logo-t{display:flex;flex-direction:column;line-height:1.1}
+.logo-m{font-family:var(--fd);font-size:1.35rem;font-weight:700;color:var(--choco)}
+.logo-s{font-family:var(--fs);font-size:.78rem;color:var(--rose)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:7px 11px;border-radius:var(--r1);font-size:.85rem;font-weight:600;color:var(--txt);transition:var(--t);cursor:pointer}
+.nav-links a:hover,.nav-links a.on{color:var(--rose)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.cart-ic{position:relative;width:40px;height:40px;border-radius:50%;background:var(--rose);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem;cursor:pointer;box-shadow:var(--sr);transition:var(--t)}
+.cart-ic:hover{transform:scale(1.08)}
+.cart-n{position:absolute;top:-5px;right:-5px;background:var(--gold);color:#fff;width:18px;height:18px;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid var(--cream)}
+.hbg{display:none;flex-direction:column;gap:5px;padding:5px;cursor:pointer}
+.hbg span{width:22px;height:2px;background:var(--choco);border-radius:2px;transition:var(--t);display:block}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* Pages */
+.pg{display:none}.pg.on{display:block}
+/* Hero */
+.hero{min-height:100vh;background:linear-gradient(148deg,#fdf2ea,#fce8e6 45%,#f8dde0);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:64px}
+.hblob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4;pointer-events:none}
+.hb1{width:450px;height:450px;background:radial-gradient(circle,rgba(201,114,122,.25),transparent 70%);top:-120px;right:-80px;animation:blob 7s ease-in-out infinite}
+.hb2{width:350px;height:350px;background:radial-gradient(circle,rgba(201,149,74,.2),transparent 70%);bottom:-60px;left:5%;animation:blob 9s ease-in-out infinite reverse}
+@keyframes blob{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,-15px)}}
+.hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:70px 20px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.h-ey{display:inline-flex;align-items:center;gap:7px;background:rgba(201,114,122,.1);border:1.5px solid rgba(201,114,122,.2);padding:5px 14px;border-radius:var(--rf);font-size:.74rem;font-weight:800;color:var(--rose-d);letter-spacing:1px;text-transform:uppercase;margin-bottom:18px}
+.h-t{font-family:var(--fd);font-size:clamp(2.6rem,5vw,4.4rem);font-weight:700;color:var(--choco);line-height:1.08;margin-bottom:18px}
+.h-t em{color:var(--rose);font-style:italic;display:block}
+.h-d{color:var(--txt-m);font-size:.97rem;max-width:440px;margin-bottom:30px;line-height:1.8}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.h-stats{display:flex;gap:24px}
+.hst{text-align:center}
+.hst-n{font-family:var(--fd);font-size:1.9rem;font-weight:700;color:var(--rose);line-height:1}
+.hst-l{font-size:.7rem;font-weight:700;color:var(--txt-m);text-transform:uppercase;letter-spacing:.7px;margin-top:2px}
+.h-vis{display:flex;align-items:center;justify-content:center}
+.h-ring{position:relative;width:360px;height:360px}
+.h-cake{position:absolute;inset:48px;background:linear-gradient(145deg,var(--cream-d),#fff);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6.5rem;box-shadow:var(--s3);animation:float 4s ease-in-out infinite;z-index:2}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.h-orbit{position:absolute;inset:0;border:1.5px dashed rgba(201,114,122,.2);border-radius:50%;animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb{position:absolute;width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--s1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;animation:spin 20s linear infinite reverse}
+.orb.t{top:-23px;left:50%;transform:translateX(-50%)}
+.orb.r{right:-23px;top:50%;transform:translateY(-50%)}
+.orb.b{bottom:-23px;left:50%;transform:translateX(-50%)}
+.orb.l{left:-23px;top:50%;transform:translateY(-50%)}
+/* Marquee */
+.mq{background:var(--choco);padding:11px 0;overflow:hidden;white-space:nowrap}
+.mq-t{display:inline-flex;animation:mq 22s linear infinite}
+.mq-t span{color:#e8c88a;font-size:.76rem;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;padding:0 32px}
+.mq-t .dot{color:#e8a8ae;padding:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Section */
+.sec{padding:80px 0}.sec-alt{background:var(--cream-d)}
+.sec-hd{text-align:center;margin-bottom:48px}
+.sec-hd .ey{font-family:var(--fs);color:var(--rose);font-size:1.25rem;display:block;margin-bottom:7px}
+.sec-hd h2{font-family:var(--fd);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;color:var(--choco);line-height:1.15}
+.sec-hd h2 em{color:var(--rose);font-style:italic}
+.sec-hd p{color:var(--txt-m);max-width:520px;margin:11px auto 0;font-size:.93rem}
+.divider{width:50px;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));border-radius:3px;margin:13px auto 0}
+/* Category Grid */
+.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.cat-c{background:#fff;border-radius:var(--r4);padding:22px 12px;text-align:center;cursor:pointer;transition:var(--t);box-shadow:var(--s0);border:2px solid transparent}
+.cat-c:hover{border-color:var(--rose);transform:translateY(-4px);box-shadow:var(--s2)}
+.cat-ic{font-size:2.6rem;margin-bottom:10px;display:block;transition:transform .3s}
+.cat-c:hover .cat-ic{transform:scale(1.15) rotate(-5deg)}
+.cat-c h4{font-family:var(--fd);font-size:.94rem;font-weight:600;color:var(--choco);margin-bottom:3px}
+.cat-c p{font-size:.71rem;color:var(--txt-mu)}
+/* Cake Cards */
+.cakes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px}
+.cake-c{background:#fff;border-radius:var(--r4);overflow:hidden;box-shadow:var(--s0);transition:var(--t)}
+.cake-c:hover{transform:translateY(-7px);box-shadow:var(--s3)}
+.cake-img{position:relative;overflow:hidden;height:195px;background:linear-gradient(145deg,var(--cream-d),#fff8f0)}
+.cake-em{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5.5rem;transition:transform .4s}
+.cake-c:hover .cake-em{transform:scale(1.1) rotate(-4deg)}
+.ctag{position:absolute;top:10px;left:10px;background:var(--rose);color:#fff;font-size:.64rem;font-weight:800;padding:3px 10px;border-radius:var(--rf);text-transform:uppercase}
+.ctag.gld{background:var(--gold)}.ctag.grn{background:var(--ok)}
+.cake-b{padding:15px}
+.ccat{font-size:.67rem;font-weight:800;color:var(--rose);text-transform:uppercase;letter-spacing:.9px;margin-bottom:4px}
+.cname{font-family:var(--fd);font-size:1.12rem;font-weight:600;color:var(--choco);margin-bottom:5px;line-height:1.2}
+.cstars{display:flex;gap:2px;font-size:.7rem;color:var(--gold);margin-bottom:8px}
+.cstars span{color:var(--txt-mu);font-size:.67rem;margin-left:4px}
+.cdesc{font-size:.78rem;color:var(--txt-l);margin-bottom:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cake-ft{display:flex;align-items:center;justify-content:space-between}
+.cprice{font-family:var(--fd);font-size:1.25rem;font-weight:700;color:var(--rose-d)}
+.cprice .or{font-size:.78rem;color:var(--txt-mu);text-decoration:line-through;margin-right:4px;font-weight:400}
+.cake-act{display:flex;gap:7px;align-items:center}
+.btn-atc{width:35px;height:35px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.88rem;transition:var(--t);border:none;cursor:pointer;box-shadow:0 4px 12px rgba(201,114,122,.28)}
+.btn-atc:hover{transform:scale(1.14)}
+.btn-vw{font-size:.76rem;font-weight:700;color:var(--rose);cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:4px;transition:var(--t)}
+.btn-vw:hover{color:var(--rose-d)}
+/* About */
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ab-vis{position:relative}
+.ab-main{max-width:400px;height:360px;background:linear-gradient(145deg,var(--cream-d),#fff);border-radius:var(--r3);display:flex;align-items:center;justify-content:center;font-size:7rem;box-shadow:var(--s2);position:relative;z-index:2}
+.ab-acc{position:absolute;width:140px;height:140px;background:linear-gradient(135deg,#e8a8ae,var(--rose));border-radius:var(--r3);bottom:-18px;right:-18px;z-index:1;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.ab-badge{position:absolute;top:-13px;left:-13px;background:var(--gold);color:#fff;border-radius:var(--r3);padding:11px 15px;font-weight:700;font-size:.86rem;text-align:center;z-index:3}
+.ab-badge span{display:block;font-family:var(--fd);font-size:1.7rem;font-weight:700;line-height:1}
+.ab-feats{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:20px 0}
+.af{display:flex;align-items:flex-start;gap:9px}
+.af-ic{width:33px;height:33px;border-radius:var(--r1);background:rgba(201,114,122,.1);display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.af-tx strong{display:block;font-size:.82rem;color:var(--choco);font-weight:700}
+.af-tx span{font-size:.73rem;color:var(--txt-mu)}
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.steps::before{content:'';position:absolute;top:31px;left:12.5%;width:75%;height:2px;background:linear-gradient(90deg,#e8a8ae,#e8c88a);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-n{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;font-family:var(--fd);font-size:1.45rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:var(--sr);position:relative}
+.step-n .se{position:absolute;top:-6px;right:-6px;font-size:.95rem}
+.step h4{font-family:var(--fd);font-size:.97rem;font-weight:600;color:var(--choco);margin-bottom:6px}
+.step p{font-size:.78rem;color:var(--txt-l);line-height:1.5}
+/* Reviews */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev-c{background:#fff;border-radius:var(--r4);padding:24px;box-shadow:var(--s0);transition:var(--t);position:relative;overflow:hidden}
+.rev-c::before{content:'"';position:absolute;top:-5px;right:14px;font-family:var(--fd);font-size:7rem;color:rgba(201,114,122,.07);font-weight:700;line-height:1}
+.rev-c:hover{transform:translateY(-4px);box-shadow:var(--s2)}
+.rstars{display:flex;gap:2px;font-size:.84rem;color:var(--gold);margin-bottom:11px}
+.rtxt{font-size:.85rem;color:var(--txt-m);line-height:1.72;margin-bottom:16px;font-style:italic}
+.rvwr{display:flex;align-items:center;gap:10px}
+.rvwr-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e8a8ae,var(--rose));display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#fff;flex-shrink:0}
+.rvwr-nm{font-weight:700;font-size:.84rem;color:var(--choco)}
+.rvwr-mt{font-size:.71rem;color:var(--txt-mu)}
+/* Contact */
+.cont-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.cont-info{display:flex;flex-direction:column;gap:16px}
+.ci{background:#fff;border-radius:var(--r2);padding:18px;box-shadow:var(--s0);display:flex;align-items:flex-start;gap:13px;transition:var(--t)}
+.ci:hover{transform:translateX(4px)}
+.ci-ic{width:44px;height:44px;border-radius:var(--r1);background:linear-gradient(135deg,var(--rose),var(--rose-d));display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}
+.ci-ic.gld{background:linear-gradient(135deg,var(--gold),var(--choco-l,#7a3a20))}
+.ci-ic.grn{background:linear-gradient(135deg,#25d366,#128c7e)}
+.ci-ic.ig{background:linear-gradient(135deg,#f09433,#bc1888)}
+.ci-co strong{display:block;font-size:.82rem;font-weight:700;color:var(--choco);margin-bottom:2px}
+.ci-co span,.ci-co a{font-size:.84rem;color:var(--txt-m)}
+.ci-co a:hover{color:var(--rose)}
+.cont-form{background:#fff;border-radius:var(--r4);padding:32px;box-shadow:var(--s1)}
+.cont-form h3{font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--choco);margin-bottom:4px}
+.cont-form p{font-size:.83rem;color:var(--txt-l);margin-bottom:20px}
+/* Form */
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.8rem;font-weight:700;color:var(--choco);margin-bottom:5px}
+.fg label span{color:var(--rose)}
+.fc{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r1);font-size:.88rem;color:var(--txt);background:var(--cream);transition:var(--t)}
+.fc:focus{border-color:var(--rose);background:#fff;box-shadow:0 0 0 3px rgba(201,114,122,.09)}
+.fc::placeholder{color:var(--txt-mu)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+textarea.fc{resize:vertical;min-height:95px}
+select.fc{cursor:pointer}
+/* Map */
+.map-w{height:340px;background:var(--cream-d);position:relative;overflow:hidden}
+.map-w iframe{width:100%;height:100%;border:none;position:absolute;inset:0}
+/* Footer */
+.footer{background:var(--choco);color:rgba(255,255,255,.76);padding:52px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.ft-brand .logo-m{color:#fff}.ft-brand .logo-s{color:#e8a8ae}
+.ft-brand p{font-size:.82rem;line-height:1.72;margin:12px 0 16px;opacity:.76}
+.ft-soc{display:flex;gap:8px}
+.soc-b{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.09);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.86rem;transition:var(--t);text-decoration:none}
+.soc-b:hover{transform:translateY(-2px)}
+.soc-b.ig:hover{background:linear-gradient(135deg,#f09433,#bc1888)}
+.soc-b.wa:hover{background:#25d366}
+.ft-col h4{font-family:var(--fd);font-size:.98rem;font-weight:600;color:#fff;margin-bottom:14px;padding-bottom:8px;position:relative}
+.ft-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:var(--rose)}
+.ft-col ul li{margin-bottom:8px}
+.ft-col ul li a{font-size:.81rem;opacity:.7;transition:var(--t);display:flex;align-items:center;gap:5px;cursor:pointer}
+.ft-col ul li a:hover{opacity:1;color:#e8a8ae}
+.ft-cont li{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
+.ft-cont li i{color:#e8a8ae;margin-top:3px;font-size:.81rem;flex-shrink:0}
+.ft-cont li span{font-size:.79rem;opacity:.76;line-height:1.5}
+.ft-bot{border-top:1px solid rgba(255,255,255,.1);padding:16px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-bot p{font-size:.76rem;opacity:.48}
+.ft-bot span{color:#e8a8ae}
+/* Page Hero */
+.pg-hero{padding:105px 0 48px;background:linear-gradient(148deg,#fdf2ea,#fce8e6 50%,#f8dde0);text-align:center}
+.pg-hero h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;color:var(--choco)}
+.pg-hero h1 em{color:var(--rose);font-style:italic}
+.pg-hero p{color:var(--txt-m);max-width:460px;margin:11px auto 0}
+.bc{display:flex;align-items:center;justify-content:center;gap:6px;font-size:.78rem;color:var(--txt-mu);margin-bottom:12px}
+.bc a{color:var(--rose);font-weight:600;cursor:pointer}
+/* Filter */
+.fbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 0;position:sticky;top:64px;z-index:100;box-shadow:var(--s0)}
+.fbar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ftabs{display:flex;gap:5px;flex-wrap:wrap}
+.ftab{padding:6px 16px;border-radius:var(--rf);font-size:.79rem;font-weight:700;color:var(--txt-m);border:1.5px solid var(--border);transition:var(--t);cursor:pointer;background:transparent}
+.ftab:hover{border-color:var(--rose);color:var(--rose)}
+.ftab.on{background:var(--rose);color:#fff;border-color:var(--rose)}
+/* Product */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:95px 0 75px}
+.prod-img{background:linear-gradient(145deg,var(--cream-d),#fff);border-radius:var(--r4);height:420px;display:flex;align-items:center;justify-content:center;font-size:9.5rem;box-shadow:var(--s2);position:relative}
+.pbadge{position:absolute;top:14px;left:14px;background:var(--rose);color:#fff;padding:5px 13px;border-radius:var(--rf);font-size:.68rem;font-weight:800;text-transform:uppercase}
+.pname{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:700;color:var(--choco);line-height:1.12;margin-bottom:9px}
+.pprice{font-family:var(--fd);font-size:2.2rem;font-weight:700;color:var(--rose-d);margin-bottom:16px}
+.pdesc{color:var(--txt-m);line-height:1.78;margin-bottom:20px;font-size:.92rem}
+.szbtns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.szb{padding:6px 16px;border:1.5px solid var(--border);border-radius:var(--r1);font-size:.8rem;font-weight:600;color:var(--txt-m);cursor:pointer;transition:var(--t);background:#fff}
+.szb:hover,.szb.on{border-color:var(--rose);color:var(--rose);background:var(--rose-bg)}
+.qty-ctrl{display:flex;align-items:center;border:1.5px solid var(--border);border-radius:var(--r1);overflow:hidden;width:fit-content;margin-bottom:22px}
+.qty-b{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--txt-m);background:var(--cream);transition:var(--t);cursor:pointer;border:none}
+.qty-b:hover{background:var(--rose);color:#fff}
+.qty-v{width:44px;text-align:center;font-weight:700;font-size:.9rem;border-left:1.5px solid var(--border);border-right:1.5px solid var(--border);height:36px;display:flex;align-items:center;justify-content:center}
+.pcta{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:22px}
+/* Cart */
+.cart-lay{display:grid;grid-template-columns:1fr 330px;gap:24px;align-items:start;padding:95px 0 70px}
+.cart-wrap{background:#fff;border-radius:var(--r4);box-shadow:var(--s0);overflow:hidden}
+.cart-hd{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cart-hd h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--choco)}
+.cart-it{padding:16px 22px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:72px 1fr auto;gap:13px;align-items:center}
+.cit-img{width:72px;height:72px;border-radius:var(--r2);background:linear-gradient(145deg,var(--cream-d),#fff8f0);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0}
+.cit-nm{font-family:var(--fd);font-size:.97rem;font-weight:600;color:var(--choco);margin-bottom:3px}
+.cit-cat{font-size:.7rem;color:var(--rose);font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.cit-pr{font-size:.84rem;color:var(--txt-m)}
+.cit-act{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.cqty{display:flex;align-items:center;border:1.5px solid var(--border);border-radius:var(--r1);overflow:hidden}
+.cq-b{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--cream);color:var(--txt-m);font-size:.9rem;transition:var(--t);cursor:pointer;border:none}
+.cq-b:hover{background:var(--rose);color:#fff}
+.cq-v{width:34px;text-align:center;font-weight:700;font-size:.84rem;border-left:1.5px solid var(--border);border-right:1.5px solid var(--border);height:28px;display:flex;align-items:center;justify-content:center}
+.cit-tot{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--rose-d)}
+.rm-b{color:var(--txt-mu);font-size:.8rem;transition:var(--t);cursor:pointer;background:none;border:none}
+.rm-b:hover{color:var(--err)}
+.cart-summ{background:#fff;border-radius:var(--r4);padding:24px;box-shadow:var(--s0);position:sticky;top:82px}
+.cart-summ h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--choco);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.sr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.86rem;color:var(--txt-m)}
+.sr.tot{font-size:1rem;font-weight:700;color:var(--choco);border-top:1.5px dashed var(--border);padding-top:12px;margin-top:12px}
+.sr.tot .pr{font-family:var(--fd);font-size:1.4rem;color:var(--rose-d)}
+/* Checkout */
+.co-lay{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;padding:95px 0 70px}
+.co-form{background:#fff;border-radius:var(--r4);padding:32px;box-shadow:var(--s0)}
+.co-form h2{font-family:var(--fd);font-size:1.75rem;font-weight:700;color:var(--choco);margin-bottom:22px;padding-bottom:13px;border-bottom:1px solid var(--border)}
+.sec-ttl{font-size:.75rem;font-weight:800;color:var(--rose);text-transform:uppercase;letter-spacing:1px;margin-bottom:11px;margin-top:20px}
+.pay-opts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.pay-opt{border:2px solid var(--border);border-radius:var(--r2);padding:13px 15px;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:12px}
+.pay-opt:hover{border-color:#e8a8ae}
+.pay-opt.on{border-color:var(--rose);background:var(--rose-bg)}
+.po-ic{width:40px;height:40px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.po-inf strong{display:block;font-size:.86rem;font-weight:700;color:var(--choco)}
+.po-inf span{font-size:.74rem;color:var(--txt-mu)}
+.po-chk{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:var(--t);font-size:.7rem;color:transparent;flex-shrink:0}
+.pay-opt.on .po-chk{background:var(--rose);border-color:var(--rose);color:#fff}
+.ord-rev{background:#fff;border-radius:var(--r4);padding:24px;box-shadow:var(--s0);position:sticky;top:82px}
+.ord-rev h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--choco);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+/* Success */
+.succ{padding:110px 0;text-align:center}
+.succ-ic{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--ok),#3a9f5a);color:#fff;font-size:2.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(109,186,122,.28);animation:pop .5s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+/* Admin */
+.adm-login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--choco),#6a2a10);padding:20px}
+.lg-card{background:#fff;border-radius:var(--r4);padding:44px 38px;width:100%;max-width:400px;box-shadow:var(--s3)}
+.lg-logo{text-align:center;margin-bottom:24px}
+.lg-err{background:#fff0f0;border:1.5px solid #ffcccc;color:var(--err);padding:8px 12px;border-radius:var(--r1);font-size:.81rem;font-weight:600;margin-bottom:12px;display:none}
+.lg-err.show{display:block}
+.adm-wrap{display:flex;min-height:100vh;background:var(--cream)}
+.adm-sb{width:240px;background:var(--choco);color:#fff;flex-shrink:0;display:flex;flex-direction:column;position:fixed;top:0;bottom:0;left:0;z-index:200;overflow-y:auto}
+.sb-logo{padding:18px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.adm-nav{padding:12px 8px;flex:1}
+.an-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r1);font-size:.84rem;font-weight:600;color:rgba(255,255,255,.56);cursor:pointer;transition:var(--t);margin-bottom:2px}
+.an-item:hover{background:rgba(255,255,255,.1);color:#fff}
+.an-item.on{background:var(--rose);color:#fff}
+.an-div{height:1px;background:rgba(255,255,255,.1);margin:7px 0}
+.adm-main{margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh}
+.adm-top{background:#fff;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--s0);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.top-ttl{font-family:var(--fd);font-size:1.2rem;font-weight:600;color:var(--choco)}
+.adm-out{padding:7px 15px;border-radius:var(--rf);background:var(--rose-bg);color:var(--rose);font-size:.78rem;font-weight:700;border:1.5px solid #e8a8ae;transition:var(--t);cursor:pointer}
+.adm-out:hover{background:var(--rose);color:#fff}
+.adm-cnt{padding:24px;flex:1}
+.adm-sec{display:none}.adm-sec.on{display:block}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.st-c{background:#fff;border-radius:var(--r2);padding:18px;box-shadow:var(--s0);display:flex;align-items:center;gap:13px;transition:var(--t)}
+.st-c:hover{transform:translateY(-2px)}
+.st-ic{width:48px;height:48px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.st-ic.r{background:var(--rose-bg)}.st-ic.g{background:var(--gold-bg)}.st-ic.gr{background:#e8f5e9}
+.st-v{font-family:var(--fd);font-size:1.8rem;font-weight:700;color:var(--choco);line-height:1}
+.st-l{font-size:.72rem;color:var(--txt-mu);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.adm-card{background:#fff;border-radius:var(--r2);padding:20px;box-shadow:var(--s0);margin-bottom:18px}
+.adm-card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.adm-card-h h3{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--choco)}
+.adm-tbl{width:100%;border-collapse:collapse}
+.adm-tbl th{text-align:left;font-size:.69rem;font-weight:800;color:var(--txt-mu);text-transform:uppercase;padding:0 10px 10px;border-bottom:1.5px solid var(--border)}
+.adm-tbl td{padding:12px 10px;border-bottom:1px solid var(--border);font-size:.83rem;vertical-align:middle}
+.adm-tbl tr:last-child td{border-bottom:none}
+.adm-tbl tr:hover td{background:var(--cream)}
+.sbadge{padding:3px 10px;border-radius:var(--rf);font-size:.68rem;font-weight:700;display:inline-block}
+.sbadge.pend{background:#fff8e1;color:#e6a000}.sbadge.conf{background:#e3f8eb;color:#2d9e4a}
+.tb{padding:4px 10px;border-radius:var(--r1);font-size:.71rem;font-weight:700;transition:var(--t);cursor:pointer;border:none}
+.tb.vw{background:var(--rose-bg);color:var(--rose)}.tb.vw:hover{background:var(--rose);color:#fff}
+.tb.dl{background:#fff0f0;color:var(--err)}.tb.dl:hover{background:var(--err);color:#fff}
+.modal-ov{position:fixed;inset:0;background:rgba(62,26,8,.5);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:var(--t)}
+.modal-ov.open{opacity:1;pointer-events:all}
+.modal-bx{background:#fff;border-radius:var(--r4);padding:30px;max-width:560px;width:100%;box-shadow:var(--s3);transform:scale(.95);transition:var(--t);max-height:88vh;overflow-y:auto}
+.modal-ov.open .modal-bx{transform:scale(1)}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.modal-hd h3{font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--choco)}
+.modal-x{width:30px;height:30px;border-radius:50%;background:var(--cream-d);display:flex;align-items:center;justify-content:center;color:var(--txt-m);font-size:.86rem;transition:var(--t);cursor:pointer;border:none}
+.modal-x:hover{background:var(--rose);color:#fff}
+/* Responsive */
+@media(max-width:1024px){
+.hero-in,.ab-grid,.prod-grid,.cart-lay,.co-lay{grid-template-columns:1fr}
+.hero-in{text-align:center;gap:36px}.h-vis{order:-1}.h-ring{width:260px;height:260px}.h-cake{font-size:5.5rem}
+.h-d{margin:0 auto 28px}.h-btns{justify-content:center}.h-stats{justify-content:center}
+.ab-vis{display:none}.cat-grid{grid-template-columns:repeat(3,1fr)}
+.steps{grid-template-columns:repeat(2,1fr)}.steps::before{display:none}
+.rev-grid{grid-template-columns:repeat(2,1fr)}.cont-grid{grid-template-columns:1fr}
+.ft-grid{grid-template-columns:1fr 1fr}.stats-row{grid-template-columns:repeat(2,1fr)}
+.adm-sb{transform:translateX(-100%)}.adm-sb.open{transform:translateX(0)}.adm-main{margin-left:0}
+}
+@media(max-width:768px){
+.nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(253,246,238,.98);backdrop-filter:blur(16px);flex-direction:column;padding:16px 20px;box-shadow:var(--s2);gap:2px}
+.nav-links.open{display:flex}.hbg{display:flex}
+.cat-grid{grid-template-columns:repeat(2,1fr)}.rev-grid,.frow{grid-template-columns:1fr}
+.sec{padding:56px 0}.ft-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.container{padding:0 14px}.steps{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav" id="nav">
+<div class="nav-c">
+<div class="logo" onclick="go('home')"><span class="logo-i">🎂</span><div class="logo-t"><span class="logo-m">Harshika</span><span class="logo-s">Cake Shop</span></div></div>
+<nav class="nav-links" id="navL">
+<a onclick="go('home')" class="on">Home</a>
+<a onclick="go('catalog')">Our Cakes</a>
+<a onclick="go('home');setTimeout(()=>scrollTo('#about'),200)">About</a>
+<a onclick="go('home');setTimeout(()=>scrollTo('#contact'),200)">Contact</a>
+<a onclick="go('admin')" style="color:var(--txt-mu);font-size:.78rem"><i class="fas fa-lock"></i> Admin</a>
+</nav>
+<div class="nav-r">
+<div class="cart-ic" onclick="go('cart')"><i class="fas fa-shopping-bag"></i><span class="cart-n" id="cartCount" style="display:none">0</span></div>
+<div class="hbg" id="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</div>
+</div>
+</header>
+
+<!-- HOME -->
+<div id="pg-home" class="pg on">
+<section class="hero">
+<div class="hblob hb1"></div><div class="hblob hb2"></div>
+<div class="hero-in">
+<div>
+<div class="h-ey">✦ Handcrafted with Love · Shindkheda</div>
+<h1 class="h-t">Every Cake Tells<em>a Sweet Story</em></h1>
+<p class="h-d">Premium custom cakes for every celebration — birthdays, weddings, anniversaries and every moment worth remembering.</p>
+<div class="h-btns">
+<button class="btn btn-p btn-lg" onclick="go('catalog')"><i class="fas fa-birthday-cake"></i> Order Your Cake</button>
+<a href="https://wa.me/918390802055?text=Hi%20Harshika%20Cake%20Shop!%20I%27d%20like%20to%20order%20%F0%9F%8E%82" target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+</div>
+<div class="h-stats">
+<div class="hst"><div class="hst-n">500+</div><div class="hst-l">Customers</div></div>
+<div class="hst"><div class="hst-n">50+</div><div class="hst-l">Varieties</div></div>
+<div class="hst"><div class="hst-n">5★</div><div class="hst-l">Rating</div></div>
+</div>
+</div>
+<div class="h-vis"><div class="h-ring"><div class="h-orbit"><div class="orb t">🍓</div><div class="orb r">🍫</div><div class="orb b">🌹</div><div class="orb l">✨</div></div><div class="h-cake">🎂</div></div></div>
+</div>
+</section>
+<div class="mq"><div class="mq-t"><span>Birthday Cakes</span><span class="dot">✦</span><span>Wedding Cakes</span><span class="dot">✦</span><span>Custom Orders</span><span class="dot">✦</span><span>Fresh Daily</span><span class="dot">✦</span><span>WhatsApp Orders</span><span class="dot">✦</span><span>UPI · GPay · PhonePe</span><span class="dot">✦</span><span>Cash on Delivery</span><span class="dot">✦</span><span>Shindkheda</span><span class="dot">✦</span><span>Birthday Cakes</span><span class="dot">✦</span><span>Wedding Cakes</span><span class="dot">✦</span><span>Custom Orders</span><span class="dot">✦</span><span>Fresh Daily</span><span class="dot">✦</span><span>WhatsApp Orders</span><span class="dot">✦</span><span>UPI · GPay · PhonePe</span><span class="dot">✦</span><span>Cash on Delivery</span><span class="dot">✦</span><span>Shindkheda</span><span class="dot">✦</span></div></div>
+<section class="sec"><div class="container"><div class="sec-hd"><span class="ey">Browse by Type</span><h2>What Are You <em>Celebrating?</em></h2><div class="divider"></div></div>
+<div class="cat-grid">
+<div class="cat-c" onclick="go('catalog','all')"><span class="cat-ic">🎂</span><h4>All Cakes</h4><p>12 cakes</p></div>
+<div class="cat-c" onclick="go('catalog','birthday')"><span class="cat-ic">🎉</span><h4>Birthday</h4><p>4 cakes</p></div>
+<div class="cat-c" onclick="go('catalog','wedding')"><span class="cat-ic">💍</span><h4>Wedding</h4><p>3 cakes</p></div>
+<div class="cat-c" onclick="go('catalog','chocolate')"><span class="cat-ic">🍫</span><h4>Chocolate</h4><p>3 cakes</p></div>
+<div class="cat-c" onclick="go('catalog','custom')"><span class="cat-ic">✨</span><h4>Custom</h4><p>2 cakes</p></div>
+</div></div></section>
+<section class="sec sec-alt" id="featured"><div class="container"><div class="sec-hd"><span class="ey">Our Specialties</span><h2>Featured <em>Cakes</em></h2><p>Handpicked bestsellers baked fresh every day</p><div class="divider"></div></div>
+<div class="cakes-grid" id="featGrid"></div>
+<div style="text-align:center;margin-top:36px"><button class="btn btn-o btn-lg" onclick="go('catalog')">View All Cakes <i class="fas fa-arrow-right"></i></button></div>
+</div></section>
+<section class="sec" id="about"><div class="container"><div class="ab-grid">
+<div class="ab-vis"><div class="ab-badge"><span>10+</span>Years</div><div class="ab-main">🎂</div><div class="ab-acc">🌹</div></div>
+<div>
+<span style="font-family:var(--fs);color:var(--rose);font-size:1.2rem;display:block;margin-bottom:8px">Our Sweet Story</span>
+<h2 style="font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--choco);line-height:1.15;margin-bottom:14px">Baked with <em style="color:var(--rose);font-style:italic">Passion,</em> Served with Love</h2>
+<p style="color:var(--txt-m);margin-bottom:12px;line-height:1.78;font-size:.92rem">Welcome to Harshika Cake Shop — Shindkheda's most beloved bakery. For over a decade, we've been crafting extraordinary cakes for life's most cherished moments.</p>
+<p style="color:var(--txt-m);margin-bottom:18px;line-height:1.78;font-size:.92rem">Every cake is made from scratch using fresh, locally sourced ingredients. No shortcuts — just pure, honest baking with lots of love in every layer.</p>
+<div class="ab-feats">
+<div class="af"><div class="af-ic">🌿</div><div class="af-tx"><strong>Fresh Ingredients</strong><span>Locally sourced daily</span></div></div>
+<div class="af"><div class="af-ic">✨</div><div class="af-tx"><strong>Custom Designs</strong><span>Your vision, our craft</span></div></div>
+<div class="af"><div class="af-ic">🚚</div><div class="af-tx"><strong>Same Day Delivery</strong><span>Order before 2 PM</span></div></div>
+<div class="af"><div class="af-ic">💯</div><div class="af-tx"><strong>100% Satisfaction</strong><span>Guaranteed freshness</span></div></div>
+</div>
+<a href="https://wa.me/918390802055?text=Hi!%20I%27d%20like%20a%20custom%20cake." target="_blank" class="btn btn-p"><i class="fab fa-whatsapp"></i> Order Custom Cake</a>
+</div>
+</div></div></section>
+<section class="sec sec-alt"><div class="container"><div class="sec-hd"><span class="ey">Simple & Easy</span><h2>How to <em>Order</em></h2><p>Just 4 easy steps to your dream cake</p><div class="divider"></div></div>
+<div class="steps">
+<div class="step"><div class="step-n">1<span class="se">🎂</span></div><h4>Choose Your Cake</h4><p>Browse our catalog and pick your favorite.</p></div>
+<div class="step"><div class="step-n">2<span class="se">🛒</span></div><h4>Add to Cart</h4><p>Select size, quantity and add your message.</p></div>
+<div class="step"><div class="step-n">3<span class="se">💳</span></div><h4>Pay Easily</h4><p>UPI, GPay, PhonePe or Cash on Delivery.</p></div>
+<div class="step"><div class="step-n">4<span class="se">🚚</span></div><h4>Fresh Delivery</h4><p>Your cake delivered fresh to your door!</p></div>
+</div></div></section>
+<section class="sec" id="reviews"><div class="container"><div class="sec-hd"><span class="ey">What Customers Say</span><h2>Sweet <em>Reviews</em></h2><div class="divider"></div></div>
+<div class="rev-grid" id="revGrid"></div>
+</div></section>
+<section class="sec sec-alt" id="contact"><div class="container"><div class="sec-hd"><span class="ey">Get In Touch</span><h2>Visit or <em>Contact Us</em></h2><div class="divider"></div></div>
+<div class="cont-grid">
+<div class="cont-info">
+<div class="ci"><div class="ci-ic"><i class="fas fa-map-marker-alt"></i></div><div class="ci-co"><strong>Our Location</strong><span>Near Vegetable Market, Front of Jayalakshmi Super Market, Station Road, Shindkheda, Maharashtra</span></div></div>
+<div class="ci"><div class="ci-ic grn"><i class="fab fa-whatsapp"></i></div><div class="ci-co"><strong>WhatsApp Orders</strong><a href="https://wa.me/918390802055" target="_blank">+91 8390802055</a></div></div>
+<div class="ci"><div class="ci-ic"><i class="fas fa-phone"></i></div><div class="ci-co"><strong>Call Us</strong><a href="tel:+918390802055">+91 8390802055</a></div></div>
+<div class="ci"><div class="ci-ic gld"><i class="fas fa-clock"></i></div><div class="ci-co"><strong>Opening Hours</strong><span>9:00 AM – 9:00 PM · All Days</span></div></div>
+<div class="ci"><div class="ci-ic ig"><i class="fab fa-instagram"></i></div><div class="ci-co"><strong>Instagram</strong><a href="https://www.instagram.com/harshika_cake_shop" target="_blank">@harshika_cake_shop</a></div></div>
+</div>
+<div class="cont-form">
+<h3>Send a Message</h3><p>We'll reply on WhatsApp instantly!</p>
+<form id="cForm">
+<div class="frow"><div class="fg"><label>Name <span>*</span></label><input class="fc" name="name" type="text" placeholder="Priya Sharma" required/></div><div class="fg"><label>Phone <span>*</span></label><input class="fc" name="phone" type="tel" placeholder="+91 98765 43210" required/></div></div>
+<div class="fg"><label>Message</label><textarea class="fc" name="msg" rows="4" placeholder="e.g. 1kg chocolate birthday cake with Happy Birthday Raj..."></textarea></div>
+<button type="submit" class="btn btn-wa btn-block btn-lg"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+</form>
+</div>
+</div></div></section>
+<div class="map-w"><iframe src="https://maps.google.com/maps?q=Shindkheda+Maharashtra&output=embed" allowfullscreen loading="lazy"></iframe></div>
+<footer class="footer"><div class="container">
+<div class="ft-grid">
+<div class="ft-brand"><div class="logo" onclick="go('home')"><span class="logo-i">🎂</span><div class="logo-t"><span class="logo-m">Harshika</span><span class="logo-s">Cake Shop</span></div></div><p>Premium handcrafted cakes made fresh daily with love in Shindkheda, Maharashtra.</p>
+<div class="ft-soc"><a href="https://www.instagram.com/harshika_cake_shop" target="_blank" class="soc-b ig"><i class="fab fa-instagram"></i></a><a href="https://wa.me/918390802055" target="_blank" class="soc-b wa"><i class="fab fa-whatsapp"></i></a><a href="tel:+918390802055" class="soc-b"><i class="fas fa-phone"></i></a></div></div>
+<div class="ft-col"><h4>Quick Links</h4><ul><li><a onclick="go('home')"><i class="fas fa-chevron-right"></i> Home</a></li><li><a onclick="go('catalog')"><i class="fas fa-chevron-right"></i> Our Cakes</a></li><li><a onclick="go('cart')"><i class="fas fa-chevron-right"></i> Cart</a></li><li><a onclick="go('checkout')"><i class="fas fa-chevron-right"></i> Checkout</a></li></ul></div>
+<div class="ft-col"><h4>Cake Types</h4><ul><li><a onclick="go('catalog','birthday')"><i class="fas fa-chevron-right"></i> Birthday</a></li><li><a onclick="go('catalog','wedding')"><i class="fas fa-chevron-right"></i> Wedding</a></li><li><a onclick="go('catalog','chocolate')"><i class="fas fa-chevron-right"></i> Chocolate</a></li><li><a onclick="go('catalog','custom')"><i class="fas fa-chevron-right"></i> Custom</a></li></ul></div>
+<div class="ft-col"><h4>Contact</h4><ul class="ft-cont"><li><i class="fas fa-map-marker-alt"></i><span>Near Veg Market, Station Rd, Shindkheda</span></li><li><i class="fab fa-whatsapp"></i><span>+91 8390802055</span></li><li><i class="fas fa-clock"></i><span>9am–9pm · All Days</span></li></ul></div>
+</div>
+<div class="ft-bot"><p>© 2025 <span>Harshika Cake Shop</span> · Baked with ❤️ in Shindkheda</p><p><span>Station Road, Shindkheda, Maharashtra</span></p></div>
+</div></footer>
+</div>
+
+<!-- CATALOG -->
+<div id="pg-catalog" class="pg">
+<div style="padding-top:64px">
+<div class="pg-hero"><div class="bc"><a onclick="go('home')">Home</a><i class="fas fa-chevron-right"></i><span>Our Cakes</span></div><h1>Our <em>Cake Collection</em></h1><p>Fresh, handcrafted cakes for every celebration</p></div>
+<div class="fbar"><div class="container"><div class="fbar-in">
+<div class="ftabs" id="ftabs">
+<button class="ftab on" onclick="filt('all',this)">All</button>
+<button class="ftab" onclick="filt('birthday',this)">🎉 Birthday</button>
+<button class="ftab" onclick="filt('wedding',this)">💍 Wedding</button>
+<button class="ftab" onclick="filt('chocolate',this)">🍫 Chocolate</button>
+<button class="ftab" onclick="filt('custom',this)">✨ Custom</button>
+</div>
+<span style="font-size:.79rem;color:var(--txt-mu);font-weight:600" id="cCnt">12 cakes</span>
+</div></div></div>
+<section class="sec"><div class="container"><div class="cakes-grid" id="catGrid"></div></div></section>
+<section style="background:linear-gradient(135deg,var(--choco),#7a3a20);padding:60px 0;text-align:center"><div class="container">
+<div style="font-size:2.6rem;margin-bottom:10px">🎂</div>
+<h2 style="font-family:var(--fd);font-size:2.2rem;color:#fff;margin-bottom:9px">Can't find your perfect cake?</h2>
+<p style="color:rgba(255,255,255,.7);margin-bottom:22px">Tell us your dream cake — we'll bake it!</p>
+<a href="https://wa.me/918390802055?text=Hi!%20I%20want%20a%20custom%20cake%20%F0%9F%8E%82" target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> Order Custom on WhatsApp</a>
+</div></section>
+</div>
+</div>
+
+<!-- PRODUCT -->
+<div id="pg-product" class="pg">
+<div style="padding-top:64px"><div class="container">
+<div class="bc" style="justify-content:flex-start;padding-top:32px"><a onclick="go('home')">Home</a><i class="fas fa-chevron-right"></i><a onclick="go('catalog')">Cakes</a><i class="fas fa-chevron-right"></i><span id="pBc">Cake</span></div>
+<div class="prod-grid" id="pContent"></div>
+</div>
+<section class="sec sec-alt"><div class="container"><div class="sec-hd"><span class="ey">You May Also Love</span><h2>More <em>Cakes</em></h2><div class="divider"></div></div><div class="cakes-grid" id="relGrid"></div></div></section>
+</div>
+</div>
+
+<!-- CART -->
+<div id="pg-cart" class="pg">
+<div style="padding-top:64px"><div class="container" style="padding-top:36px">
+<div class="bc" style="justify-content:flex-start;margin-bottom:20px"><a onclick="go('home')">Home</a><i class="fas fa-chevron-right"></i><span>Cart</span></div>
+<h1 style="font-family:var(--fd);font-size:2.3rem;font-weight:700;color:var(--choco);margin-bottom:22px">Your <em style="color:var(--rose);font-style:italic">Cart</em></h1>
+<div id="cartLayout"></div>
+</div></div>
+</div>
+
+<!-- CHECKOUT -->
+<div id="pg-checkout" class="pg">
+<div style="padding-top:64px"><div class="container" style="padding-top:36px">
+<div class="bc" style="justify-content:flex-start;margin-bottom:22px"><a onclick="go('home')">Home</a><i class="fas fa-chevron-right"></i><a onclick="go('cart')">Cart</a><i class="fas fa-chevron-right"></i><span>Checkout</span></div>
+<div class="co-lay">
+<div class="co-form"><h2>Complete Your Order 🎂</h2>
+<form id="coForm">
+<div class="sec-ttl">Customer Details</div>
+<div class="frow"><div class="fg"><label>Full Name <span>*</span></label><input class="fc" id="cN" type="text" placeholder="Priya Sharma" required/></div><div class="fg"><label>Phone <span>*</span></label><input class="fc" id="cP" type="tel" placeholder="+91 98765 43210" required/></div></div>
+<div class="fg"><label>Delivery Address <span>*</span></label><textarea class="fc" id="cA" rows="3" placeholder="House no, Street, Area, City, PIN..." required></textarea></div>
+<div class="frow"><div class="fg"><label>Delivery Date <span>*</span></label><input class="fc" id="cD" type="date" required/></div><div class="fg"><label>Preferred Time</label><select class="fc" id="cT"><option>Morning (9am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–9pm)</option></select></div></div>
+<div class="fg"><label>Cake Message / Notes</label><textarea class="fc" id="cNt" rows="3" placeholder="e.g. Write Happy Birthday Raj on the cake..."></textarea></div>
+<div class="sec-ttl">Payment Method</div>
+<div class="pay-opts">
+<div class="pay-opt on" data-pay="cod" onclick="sPay(this)"><div class="po-ic" style="background:#fff3e0">💵</div><div class="po-inf"><strong>Cash on Delivery</strong><span>Pay when cake arrives</span></div><div class="po-chk"><i class="fas fa-check"></i></div></div>
+<div class="pay-opt" data-pay="upi" onclick="sPay(this)"><div class="po-ic" style="background:#e8f5e9">📱</div><div class="po-inf"><strong>UPI / GPay / PhonePe</strong><span>UPI ID: 8390802055@paytm</span></div><div class="po-chk"><i class="fas fa-check"></i></div></div>
+<div class="pay-opt" data-pay="wa" onclick="sPay(this)"><div class="po-ic" style="background:#e8f5e9">💬</div><div class="po-inf"><strong>Pay via WhatsApp</strong><span>Confirm & pay directly with us</span></div><div class="po-chk"><i class="fas fa-check"></i></div></div>
+</div>
+<button type="submit" class="btn btn-p btn-block btn-lg" style="margin-top:22px"><i class="fas fa-check-circle"></i> Place Order</button>
+</form></div>
+<div class="ord-rev"><h3>Order Summary</h3><div id="orIt"></div><div class="sr"><span>Subtotal</span><span id="orSb">₹0</span></div><div class="sr"><span>Delivery</span><span id="orDl">₹0</span></div><div class="sr tot"><span>Total</span><span class="pr" id="orTt">₹0</span></div></div>
+</div>
+</div></div>
+</div>
+
+<!-- SUCCESS -->
+<div id="pg-success" class="pg">
+<div style="padding-top:64px"><section class="succ"><div class="container">
+<div class="succ-ic"><i class="fas fa-check"></i></div>
+<h1 style="font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;color:var(--choco);margin-bottom:9px">Order Placed! 🎂</h1>
+<p style="color:var(--txt-m);max-width:440px;margin:0 auto 20px">Thank you! We'll confirm your order via WhatsApp shortly.</p>
+<div style="background:var(--gold-bg);border:1.5px solid #e8c88a;padding:10px 24px;border-radius:var(--rf);display:inline-block;font-weight:700;color:var(--choco-l);margin-bottom:24px">Order ID: <span id="sOid" style="color:var(--gold)">—</span></div>
+<div style="background:#fff;border-radius:var(--r4);padding:22px;max-width:440px;margin:0 auto 24px;box-shadow:var(--s1)">
+<div style="display:flex;flex-direction:column;gap:11px">
+<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--cream);border-radius:var(--r1)"><span style="font-size:1.3rem">📱</span><div><strong style="display:block;font-size:.84rem;color:var(--choco)">We'll confirm on WhatsApp</strong><span style="font-size:.76rem;color:var(--txt-mu)">+91 8390802055</span></div></div>
+<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--cream);border-radius:var(--r1)"><span style="font-size:1.3rem">🚚</span><div><strong style="display:block;font-size:.84rem;color:var(--choco)">Fresh delivery to your door</strong><span style="font-size:.76rem;color:var(--txt-mu)">As per your selected date & time</span></div></div>
+</div></div>
+<div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap">
+<button class="btn btn-o btn-lg" onclick="go('home')"><i class="fas fa-home"></i> Home</button>
+<button class="btn btn-p btn-lg" onclick="go('catalog')"><i class="fas fa-birthday-cake"></i> Order More</button>
+<a href="https://wa.me/918390802055" target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> Chat</a>
+</div>
+</div></section></div>
+</div>
+
+<!-- ADMIN -->
+<div id="pg-admin" class="pg">
+<div id="aLogin"><div class="adm-login">
+<div class="lg-card">
+<div class="lg-logo"><div style="font-size:2.6rem;text-align:center">🎂</div><h1 style="font-family:var(--fd);font-size:1.65rem;font-weight:700;color:var(--choco);text-align:center;margin-top:6px">Harshika Cake Shop</h1><p style="font-size:.79rem;color:var(--txt-mu);text-align:center;margin-top:3px">Admin Panel – Secure Access</p></div>
+<h2 style="font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--choco);margin-bottom:18px;margin-top:22px;text-align:center">Sign In</h2>
+<div class="lg-err" id="lgE"><i class="fas fa-exclamation-circle"></i> Wrong password!</div>
+<form id="lgF"><div class="fg"><label>Password <span>*</span></label><input class="fc" id="lgP" type="password" placeholder="Enter admin password" required/></div><button type="submit" class="btn btn-p btn-block btn-lg" style="margin-top:6px"><i class="fas fa-sign-in-alt"></i> Login</button></form>
+<div style="margin-top:16px;text-align:center"><a onclick="go('home')" style="font-size:.78rem;color:var(--txt-mu);cursor:pointer"><i class="fas fa-arrow-left"></i> Back to Website</a></div>
+</div></div></div>
+<div id="aDash" class="hidden"><div class="adm-wrap">
+<aside class="adm-sb" id="aSB">
+<div class="sb-logo"><div class="logo"><span class="logo-i">🎂</span><div class="logo-t"><span class="logo-m">Harshika</span><span class="logo-s">Admin</span></div></div></div>
+<nav class="adm-nav">
+<div class="an-item on" onclick="aS('aD',this)"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+<div class="an-item" onclick="aS('aO',this)"><i class="fas fa-shopping-bag"></i> Orders</div>
+<div class="an-div"></div>
+<div class="an-item" onclick="aS('aC',this)"><i class="fas fa-birthday-cake"></i> Manage Cakes</div>
+<div class="an-item" onclick="aS('aA',this)"><i class="fas fa-plus-circle"></i> Add Cake</div>
+<div class="an-div"></div>
+<div class="an-item" onclick="go('home')"><i class="fas fa-external-link-alt"></i> View Website</div>
+<div class="an-item" onclick="window.open('https://wa.me/918390802055','_blank')"><i class="fab fa-whatsapp"></i> WhatsApp</div>
+</nav>
+</aside>
+<div class="adm-main">
+<div class="adm-top"><span class="top-ttl" id="aTitle">Dashboard</span><div style="display:flex;gap:12px;align-items:center"><span style="font-size:.76rem;color:var(--txt-mu)" id="aClock"></span><button class="adm-out" onclick="aLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button></div></div>
+<div class="adm-cnt">
+<div class="adm-sec on" id="aD"><div class="stats-row" id="aStats"></div><div class="adm-card"><div class="adm-card-h"><h3>Recent Orders</h3><button class="btn btn-p btn-sm" onclick="aS('aO',null)">View All</button></div><div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Payment</th><th>Action</th></tr></thead><tbody id="aRec"></tbody></table></div></div></div>
+<div class="adm-sec" id="aO"><div class="adm-card"><div class="adm-card-h"><h3>All Orders</h3><span id="aCnt" style="font-size:.8rem;color:var(--txt-mu)"></span></div><div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Order ID</th><th>Customer</th><th>Phone</th><th>Total</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="aOrds"></tbody></table></div><div id="noO" style="text-align:center;padding:40px;display:none"><div style="font-size:2.8rem;margin-bottom:11px">📦</div><h3 style="font-family:var(--fd);color:var(--choco)">No orders yet</h3></div></div></div>
+<div class="adm-sec" id="aC"><div class="adm-card"><div class="adm-card-h"><h3>All Cakes</h3><button class="btn btn-p btn-sm" onclick="aS('aA',null)"><i class="fas fa-plus"></i> Add New</button></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:13px" id="aCkG"></div></div></div>
+<div class="adm-sec" id="aA"><div class="adm-card"><div class="adm-card-h"><h3 id="aFT">Add New Cake</h3></div>
+<form id="aForm" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<input type="hidden" id="eId"/>
+<div class="fg"><label>Name <span>*</span></label><input class="fc" id="aN" placeholder="Cake name" required/></div>
+<div class="fg"><label>Category <span>*</span></label><select class="fc" id="aCt" required><option value="">Select</option><option value="birthday">Birthday</option><option value="wedding">Wedding</option><option value="chocolate">Chocolate</option><option value="custom">Custom</option></select></div>
+<div class="fg"><label>Price ₹ <span>*</span></label><input class="fc" id="aPr" type="number" placeholder="850" required/></div>
+<div class="fg"><label>Original Price ₹</label><input class="fc" id="aOr" type="number" placeholder="1100"/></div>
+<div class="fg"><label>Emoji</label><input class="fc" id="aEm" placeholder="🎂"/></div>
+<div class="fg"><label>Tag</label><input class="fc" id="aTg" placeholder="Bestseller"/></div>
+<div class="fg" style="grid-column:1/-1"><label>Description <span>*</span></label><textarea class="fc" id="aDe" rows="3" required></textarea></div>
+<div style="grid-column:1/-1;display:flex;gap:10px"><button type="submit" class="btn btn-p btn-lg"><i class="fas fa-save"></i> Save Cake</button><button type="button" class="btn btn-o" onclick="rForm()">Clear</button></div>
+</form></div></div>
+</div></div></div>
+</div></div>
+</div>
+
+<!-- Modal -->
+<div class="modal-ov" id="oMod"><div class="modal-bx"><div class="modal-hd"><h3>Order Details</h3><button class="modal-x" onclick="document.getElementById('oMod').classList.remove('open')"><i class="fas fa-times"></i></button></div><div id="mBody"></div></div></div>
+
+<!-- WA Float -->
+<a href="https://wa.me/918390802055?text=Hi%20Harshika%20Cake%20Shop!%20I%27d%20like%20to%20order%20%F0%9F%8E%82" target="_blank" class="wa-float" title="Order on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div id="toast"></div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────
+const D=[
+{id:1,name:"Royal Chocolate Dream",cat:"chocolate",price:850,op:1100,em:"🎂",tag:"Bestseller",tt:"gld",r:5,rv:48,desc:"Luxurious triple-layer dark chocolate cake with velvety ganache frosting and rich cocoa sponge.",sz:["500g","1kg","1.5kg","2kg"],ing:"Dark chocolate, butter, eggs, flour, cocoa, cream",dt:"Same day (before 2pm)"},
+{id:2,name:"Blush Wedding Elegance",cat:"wedding",price:2200,op:2800,em:"💍",tag:"Wedding",tt:"",r:5,rv:23,desc:"Stunning 3-tier wedding cake with soft rose buttercream and handcrafted sugar flowers.",sz:["2kg","3kg","4kg","5kg"],ing:"Vanilla sponge, rose buttercream, sugar flowers",dt:"Book 3 days ahead"},
+{id:3,name:"Rainbow Birthday Blast",cat:"birthday",price:650,op:800,em:"🌈",tag:"Birthday",tt:"",r:5,rv:62,desc:"Colorful rainbow layered cake with six vibrant sponge layers and rainbow sprinkles.",sz:["500g","1kg","1.5kg"],ing:"Vanilla sponge, food colors, buttercream, sprinkles",dt:"Same day (before 2pm)"},
+{id:4,name:"Strawberry Garden",cat:"custom",price:950,op:1200,em:"🍓",tag:"New",tt:"grn",r:4,rv:17,desc:"Fresh strawberries atop light vanilla chiffon with whipped cream and strawberry coulis.",sz:["500g","1kg","1.5kg","2kg"],ing:"Fresh strawberries, vanilla sponge, whipped cream",dt:"Same day (before 1pm)"},
+{id:5,name:"Choco Hazelnut Truffle",cat:"chocolate",price:1100,op:1400,em:"🍫",tag:"Premium",tt:"gld",r:5,rv:34,desc:"Hazelnut praline layers, Nutella frosting and roasted hazelnuts on dark chocolate base.",sz:["1kg","1.5kg","2kg"],ing:"Hazelnut, Nutella, dark chocolate, cream",dt:"Same day (before 12pm)"},
+{id:6,name:"Princess Fantasy",cat:"birthday",price:750,op:950,em:"👑",tag:"Birthday",tt:"",r:5,rv:41,desc:"Dreamy pink princess castle cake with edible pearl decorations and golden crown toppers.",sz:["500g","1kg","1.5kg"],ing:"Rose sponge, pink buttercream, edible pearls",dt:"Same day (before 2pm)"},
+{id:7,name:"Elegant White Wedding",cat:"wedding",price:3500,op:4200,em:"🤍",tag:"Wedding",tt:"",r:5,rv:15,desc:"Classic white fondant wedding cake with delicate lace patterns and gold pearl accents.",sz:["3kg","4kg","5kg","6kg"],ing:"Vanilla sponge, white fondant, sugar lace, edible gold",dt:"Book 5 days ahead"},
+{id:8,name:"Butterscotch Cloud",cat:"custom",price:700,op:900,em:"☁️",tag:"Popular",tt:"gld",r:4,rv:29,desc:"Light fluffy butterscotch cake with caramel drizzle and crunchy praline bits.",sz:["500g","1kg","1.5kg","2kg"],ing:"Butterscotch sponge, caramel, praline, cream",dt:"Same day (before 2pm)"},
+{id:9,name:"Dark Forest Gâteau",cat:"chocolate",price:900,op:1100,em:"🍒",tag:"Classic",tt:"",r:5,rv:55,desc:"Dark chocolate sponge, fresh cherries, kirsch-soaked cream and chocolate curls.",sz:["500g","1kg","1.5kg","2kg"],ing:"Dark chocolate, cherries, cream, kirsch",dt:"Same day (before 2pm)"},
+{id:10,name:"Golden Anniversary",cat:"wedding",price:2800,op:3400,em:"✨",tag:"Anniversary",tt:"gld",r:5,rv:20,desc:"Gold-accented 2-tier cake with saffron sponge, rose water cream and edible gold leaf.",sz:["2kg","3kg","4kg"],ing:"Saffron sponge, rosewater cream, edible gold",dt:"Book 3 days ahead"},
+{id:11,name:"Happy Number Cake",cat:"birthday",price:550,op:700,em:"🔢",tag:"Birthday",tt:"",r:4,rv:37,desc:"Shaped in your chosen number – perfect for 1st, 18th or 50th birthdays!",sz:["1kg","1.5kg","2kg"],ing:"Choice of sponge, buttercream, fondant numbers",dt:"Book 1 day ahead"},
+{id:12,name:"Mango Tango Delight",cat:"custom",price:800,op:1000,em:"🥭",tag:"Seasonal",tt:"gld",r:5,rv:26,desc:"Fresh Alphonso mango in vanilla sponge with mango mousse and fresh mango slices.",sz:["500g","1kg","1.5kg"],ing:"Alphonso mango, vanilla sponge, mango mousse",dt:"Same day (before 12pm)"}
+];
+const RV=[
+{n:"Priya Sharma",l:"Shindkheda",a:"P",r:5,t:"Ordered a birthday cake for my daughter and it was absolutely stunning! Decoration was perfect and taste was amazing.",c:"Princess Fantasy"},
+{n:"Rahul Patil",l:"Dhule",a:"R",r:5,t:"The wedding cake was the highlight of our reception! Professional work, delivered on time. Highly recommend!",c:"Elegant White Wedding"},
+{n:"Sneha Joshi",l:"Shindkheda",a:"S",r:5,t:"The chocolate truffle cake was unbelievably delicious! Rich, moist, amazing hazelnut flavor. Already ordered again!",c:"Choco Hazelnut Truffle"},
+{n:"Amit Desai",l:"Nandurbar",a:"A",r:5,t:"Best bakery in the area! Mango cake was so fresh with real fruit. Fast delivery and excellent packaging.",c:"Mango Tango Delight"},
+{n:"Kavita More",l:"Shindkheda",a:"K",r:5,t:"Ordered via WhatsApp — super easy! Rainbow cake for my son was perfect. Colors and taste exceeded expectations!",c:"Rainbow Birthday Blast"},
+{n:"Suresh Naik",l:"Shahada",a:"S",r:5,t:"Anniversary cake was beautifully done with gold theme. My wife cried happy tears. Thank you Harshika Cake Shop!",c:"Golden Anniversary"}
+];
+
+// ── CART ──────────────────────────────────────────────────
+const C={
+i:JSON.parse(localStorage.getItem('hcs')||'[]'),
+save(){localStorage.setItem('hcs',JSON.stringify(this.i))},
+cnt(){return this.i.reduce((s,x)=>s+x.q,0)},
+tot(){return this.i.reduce((s,x)=>s+x.p*x.q,0)},
+add(item,q=1){const e=this.i.find(x=>x.id===item.id);if(e)e.q+=q;else this.i.push({...item,q});this.save();this.ui();T('🎂 '+item.n+' added to cart!','ok')},
+del(id){this.i=this.i.filter(x=>x.id!==id);this.save();this.ui()},
+upd(id,d){const e=this.i.find(x=>x.id===id);if(e){e.q=Math.max(1,e.q+d);this.save();this.ui()}},
+clr(){this.i=[];this.save();this.ui()},
+ui(){const el=document.getElementById('cartCount');if(!el)return;const c=this.cnt();el.textContent=c;el.style.display=c>0?'flex':'none'}
+};
+C.ui();
+
+// ── TOAST ─────────────────────────────────────────────────
+function T(m,t='ok',ms=3000){const el=document.getElementById('toast');el.className=t;el.innerHTML=`<i class="fas fa-${t==='ok'?'check-circle':'exclamation-circle'}"></i> ${m}`;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),ms)}
+
+// ── NAV ───────────────────────────────────────────────────
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('up',scrollY>50),{passive:true});
+function toggleNav(){document.getElementById('hbg').classList.toggle('open');document.getElementById('navL').classList.toggle('open')}
+function scrollTo(id){const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+
+// ── PAGE ROUTER ───────────────────────────────────────────
+function go(page,cat){
+document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+document.getElementById('pg-'+page).classList.add('on');
+window.scrollTo(0,0);
+document.getElementById('navL').classList.remove('open');
+document.getElementById('hbg').classList.remove('open');
+if(page==='catalog'){curCat=cat||'all';rCat();if(cat){document.querySelectorAll('.ftab').forEach(t=>t.classList.toggle('on',t.onclick.toString().includes("'"+cat+"'")));}}
+if(page==='cart')rCart();
+if(page==='checkout'){rOrdSum();document.getElementById('cD').min=new Date().toISOString().split('T')[0]}
+if(page==='admin'&&sessionStorage.getItem('ha')==='1'){document.getElementById('aLogin').classList.add('hidden');document.getElementById('aDash').classList.remove('hidden');iDash()}
+}
+
+// ── CAKE CARD ─────────────────────────────────────────────
+function cc(c){return`<div class="cake-c"><div class="cake-img"><div class="cake-em">${c.em}</div>${c.tag?`<span class="ctag ${c.tt}">${c.tag}</span>`:''}</div><div class="cake-b"><div class="ccat">${c.cat}</div><div class="cname">${c.name}</div><div class="cstars">${'★'.repeat(c.r)}<span>(${c.rv})</span></div><div class="cdesc">${c.desc}</div><div class="cake-ft"><div class="cprice">${c.op?`<span class="or">₹${c.op.toLocaleString()}</span>`:''} ₹${c.price.toLocaleString()}</div><div class="cake-act"><button class="btn-vw" onclick="vP(${c.id})">View <i class="fas fa-arrow-right"></i></button><button class="btn-atc" onclick="C.add({id:${c.id},n:'${c.name}',p:${c.price},em:'${c.em}',cat:'${c.cat}'})"><i class="fas fa-plus"></i></button></div></div></div></div>`}
+
+// ── RENDER HOME ───────────────────────────────────────────
+document.getElementById('featGrid').innerHTML=D.slice(0,4).map(cc).join('');
+document.getElementById('revGrid').innerHTML=RV.map(r=>`<div class="rev-c"><div class="rstars">${'★'.repeat(r.r)}</div><p class="rtxt">"${r.t}"</p><div class="rvwr"><div class="rvwr-av">${r.a}</div><div><div class="rvwr-nm">${r.n}</div><div class="rvwr-mt">${r.l} · ${r.c}</div></div></div></div>`).join('');
+
+// ── CONTACT FORM ──────────────────────────────────────────
+document.getElementById('cForm').addEventListener('submit',e=>{e.preventDefault();const n=e.target.name.value,p=e.target.phone.value,m=e.target.msg.value;window.open(`https://wa.me/918390802055?text=${encodeURIComponent(`Hi! I'm ${n} (${p}).\n\n${m}`)}`,'_blank');T('Opening WhatsApp! 💬','ok')});
+
+// ── CATALOG ───────────────────────────────────────────────
+let curCat='all';
+function filt(cat,btn){curCat=cat;document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('on'));if(btn)btn.classList.add('on');rCat()}
+function rCat(){const list=curCat==='all'?D:D.filter(c=>c.cat===curCat);document.getElementById('catGrid').innerHTML=list.map(cc).join('');document.getElementById('cCnt').textContent=list.length+' cakes'}
+
+// ── PRODUCT ───────────────────────────────────────────────
+function vP(id){
+const c=D.find(x=>x.id===id);if(!c)return;
+go('product');
+document.getElementById('pBc').textContent=c.name;
+let qty=1,sz=c.sz[Math.min(1,c.sz.length-1)];
+document.getElementById('pContent').innerHTML=`
+<div class="prod-img">${c.em}<span class="pbadge">${c.tag}</span></div>
+<div>
+<div style="font-size:.71rem;font-weight:800;color:var(--rose);text-transform:uppercase;margin-bottom:6px">${c.cat}</div>
+<h1 class="pname">${c.name}</h1>
+<div style="display:flex;gap:2px;font-size:.84rem;color:var(--gold);margin-bottom:13px">${'★'.repeat(c.r)} <span style="color:var(--txt-mu);font-size:.78rem;margin-left:5px">(${c.rv} reviews)</span></div>
+<div class="pprice">₹${c.price.toLocaleString()} ${c.op?`<span style="font-size:.95rem;color:var(--txt-mu);text-decoration:line-through;margin-left:5px;font-weight:400">₹${c.op.toLocaleString()}</span>`:''}</div>
+<p class="pdesc">${c.desc}</p>
+<div style="font-size:.8rem;font-weight:700;color:var(--choco);text-transform:uppercase;margin-bottom:9px">Select Size</div>
+<div class="szbtns" id="szB">${c.sz.map((s,i)=>`<button class="szb${i===1||c.sz.length===1?' on':''}" onclick="document.querySelectorAll('#szB .szb').forEach(b=>b.classList.remove('on'));this.classList.add('on');sz='${s}'">${s}</button>`).join('')}</div>
+<div style="font-size:.8rem;font-weight:700;color:var(--choco);text-transform:uppercase;margin-bottom:9px">Quantity</div>
+<div class="qty-ctrl"><button class="qty-b" onclick="qty=Math.max(1,qty-1);document.getElementById('qvl').textContent=qty">−</button><span class="qty-v" id="qvl">1</span><button class="qty-b" onclick="qty=Math.min(10,qty+1);document.getElementById('qvl').textContent=qty">+</button></div>
+<div class="pcta">
+<button class="btn btn-p btn-lg" onclick="C.add({id:${c.id},n:'${c.name} ('+sz+')',p:${c.price},em:'${c.em}',cat:'${c.cat}'},qty);T('Added to cart! 🎂','ok')"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+<a href="https://wa.me/918390802055?text=Hi!%20I%20want%20to%20order:%20${encodeURIComponent(c.name)}" target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp Order</a>
+</div>
+<div style="border-top:1px solid var(--border);padding-top:16px;font-size:.81rem;color:var(--txt-m);display:flex;flex-direction:column;gap:8px">
+<div><i class="fas fa-leaf" style="color:var(--rose);margin-right:7px"></i>${c.ing}</div>
+<div><i class="fas fa-truck" style="color:var(--rose);margin-right:7px"></i>${c.dt}</div>
+<div><i class="fas fa-phone" style="color:var(--rose);margin-right:7px"></i><a href="tel:+918390802055" style="color:var(--rose)">+91 8390802055</a></div>
+</div></div>`;
+let rel=D.filter(x=>x.id!==c.id&&x.cat===c.cat).slice(0,4);
+if(rel.length<4)rel=[...rel,...D.filter(x=>x.id!==c.id&&x.cat!==c.cat)].slice(0,4);
+document.getElementById('relGrid').innerHTML=rel.map(cc).join('');
+}
+
+// ── CART ──────────────────────────────────────────────────
+function rCart(){
+const lay=document.getElementById('cartLayout');
+if(!C.i.length){lay.innerHTML=`<div class="cart-wrap"><div style="padding:52px 20px;text-align:center"><div style="font-size:3.5rem;margin-bottom:13px">🛒</div><h3 style="font-family:var(--fd);font-size:1.45rem;color:var(--choco);margin-bottom:7px">Cart is empty</h3><p style="color:var(--txt-mu);margin-bottom:20px">Add some delicious cakes!</p><button class="btn btn-p" onclick="go('catalog')"><i class="fas fa-birthday-cake"></i> Browse Cakes</button></div></div>`;return}
+const sub=C.tot(),del=sub>=800?0:50,tot=sub+del;
+lay.innerHTML=`<div class="cart-lay">
+<div class="cart-wrap">
+<div class="cart-hd"><h3>Cart Items</h3><span style="font-size:.8rem;color:var(--txt-mu)">${C.cnt()} item${C.cnt()>1?'s':''}</span></div>
+${C.i.map(it=>`<div class="cart-it"><div class="cit-img">${it.em}</div><div><div class="cit-nm">${it.n}</div><div class="cit-cat">${it.cat||''}</div><div class="cit-pr">₹${it.p.toLocaleString()} each</div></div><div class="cit-act"><div class="cit-tot">₹${(it.p*it.q).toLocaleString()}</div><div class="cqty"><button class="cq-b" onclick="C.upd(${it.id},-1);rCart()">−</button><span class="cq-v">${it.q}</span><button class="cq-b" onclick="C.upd(${it.id},1);rCart()">+</button></div><button class="rm-b" onclick="C.del(${it.id});T('Removed','er');rCart()"><i class="fas fa-trash"></i> Remove</button></div></div>`).join('')}
+<div style="padding:13px 20px;display:flex;gap:9px;border-top:1px solid var(--border)">
+<button class="btn btn-o btn-sm" onclick="go('catalog')"><i class="fas fa-arrow-left"></i> Shop More</button>
+<button onclick="if(confirm('Clear cart?')){C.clr();rCart()}" style="color:var(--err);border:1.5px solid var(--err);border-radius:var(--rf);padding:8px 16px;font-size:.8rem;font-weight:700;cursor:pointer">Clear All</button>
+</div></div>
+<div class="cart-summ"><h3>Summary</h3>
+<div class="sr"><span>Subtotal</span><span>₹${sub.toLocaleString()}</span></div>
+<div class="sr"><span>Delivery</span><span>${del===0?'<span style="color:var(--ok);font-weight:700">FREE</span>':'₹'+del}</span></div>
+${del>0?`<div style="font-size:.71rem;color:var(--rose);margin-bottom:7px">Add ₹${800-sub} more for free delivery!</div>`:''}
+<div class="sr tot"><span>Total</span><span class="pr">₹${tot.toLocaleString()}</span></div>
+<button class="btn btn-p btn-block btn-lg" style="margin-top:14px" onclick="go('checkout')">Checkout <i class="fas fa-arrow-right"></i></button>
+<button onclick="waO()" class="btn btn-wa btn-block" style="margin-top:8px"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+</div></div>`}
+
+function waO(){if(!C.i.length){T('Cart is empty!','er');return}let m=`🎂 *Order – Harshika Cake Shop*\n\n`;C.i.forEach(i=>{m+=`• ${i.n} × ${i.q} = ₹${(i.p*i.q).toLocaleString()}\n`});m+=`\n*Total: ₹${C.tot().toLocaleString()}*`;window.open(`https://wa.me/918390802055?text=${encodeURIComponent(m)}`,'_blank')}
+
+// ── CHECKOUT ──────────────────────────────────────────────
+let selP='cod';
+function sPay(el){document.querySelectorAll('.pay-opt').forEach(o=>o.classList.remove('on'));el.classList.add('on');selP=el.dataset.pay}
+function rOrdSum(){
+const sub=C.tot(),del=sub>=800?0:50,tot=sub+del;
+document.getElementById('orIt').innerHTML=C.i.map(i=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:1.4rem">${i.em}</span><div style="flex:1"><div style="font-size:.82rem;font-weight:600;color:var(--choco)">${i.n}</div><div style="font-size:.74rem;color:var(--txt-mu)">Qty: ${i.q}</div></div><div style="font-family:var(--fd);font-weight:700;color:var(--rose-d)">₹${(i.p*i.q).toLocaleString()}</div></div>`).join('');
+document.getElementById('orSb').textContent='₹'+sub.toLocaleString();
+document.getElementById('orDl').textContent=del===0?'FREE':'₹'+del;
+document.getElementById('orTt').textContent='₹'+tot.toLocaleString()
+}
+document.getElementById('coForm').addEventListener('submit',e=>{
+e.preventDefault();
+const n=document.getElementById('cN').value.trim(),p=document.getElementById('cP').value.trim(),a=document.getElementById('cA').value.trim(),d=document.getElementById('cD').value,ti=document.getElementById('cT').value,nt=document.getElementById('cNt').value.trim();
+if(!n||!p||!a||!d){T('Fill all required fields!','er');return}
+if(!C.i.length){T('Cart is empty!','er');return}
+const oid='HCS'+Date.now().toString().slice(-6);
+const ord={id:oid,n,p,a,d,ti,nt,pay:selP,items:[...C.i],tot:C.tot()+(C.tot()>=800?0:50),st:'pending',at:new Date().toISOString()};
+const ords=JSON.parse(localStorage.getItem('hcs_o')||'[]');ords.unshift(ord);localStorage.setItem('hcs_o',JSON.stringify(ords));
+if(selP==='wa'){let m=`🎂 *Order – Harshika Cake Shop*\n*ID:* ${oid}\n*Name:* ${n}\n*Phone:* ${p}\n*Address:* ${a}\n*Delivery:* ${d} (${ti})\n\n*Items:*\n`;ord.items.forEach(i=>{m+=`• ${i.n} × ${i.q} = ₹${(i.p*i.q).toLocaleString()}\n`});m+=`\n*Total: ₹${ord.tot.toLocaleString()}*`;if(nt)m+=`\n*Notes:* ${nt}`;window.open(`https://wa.me/918390802055?text=${encodeURIComponent(m)}`,'_blank')}
+C.clr();document.getElementById('sOid').textContent=oid;go('success')
+});
+
+// ── ADMIN ─────────────────────────────────────────────────
+document.getElementById('lgF').addEventListener('submit',e=>{e.preventDefault();if(document.getElementById('lgP').value==='@haresh09010'){sessionStorage.setItem('ha','1');document.getElementById('aLogin').classList.add('hidden');document.getElementById('aDash').classList.remove('hidden');iDash()}else{document.getElementById('lgE').classList.add('show');document.getElementById('lgP').value=''}});
+function aLogout(){sessionStorage.removeItem('ha');document.getElementById('aLogin').classList.remove('hidden');document.getElementById('aDash').classList.add('hidden')}
+function aS(id,el){document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.an-item').forEach(i=>i.classList.remove('on'));if(el)el.classList.add('on');const t={aD:'Dashboard',aO:'Orders',aC:'Manage Cakes',aA:'Add Cake'};document.getElementById('aTitle').textContent=t[id]||'Admin';if(id==='aO')rOrds();if(id==='aC')rCks()}
+function gO(){return JSON.parse(localStorage.getItem('hcs_o')||'[]')}
+function iDash(){
+const o=gO(),tot=o.reduce((s,x)=>s+x.tot,0);
+document.getElementById('aStats').innerHTML=`<div class="st-c"><div class="st-ic r">📦</div><div><div class="st-v">${o.length}</div><div class="st-l">Orders</div></div></div><div class="st-c"><div class="st-ic g">💰</div><div><div class="st-v">₹${tot.toLocaleString()}</div><div class="st-l">Revenue</div></div></div><div class="st-c"><div class="st-ic gr">🎂</div><div><div class="st-v">${D.length}</div><div class="st-l">Cakes</div></div></div><div class="st-c"><div class="st-ic r">⭐</div><div><div class="st-v">5.0</div><div class="st-l">Rating</div></div></div>`;
+document.getElementById('aRec').innerHTML=o.slice(0,5).map(x=>`<tr><td><strong style="color:var(--rose)">${x.id}</strong></td><td>${x.n}</td><td><strong>₹${x.tot.toLocaleString()}</strong></td><td><span class="sbadge pend">${x.pay.toUpperCase()}</span></td><td><button class="tb vw" onclick="vO('${x.id}')">View</button></td></tr>`).join('')||'<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--txt-mu)">No orders yet</td></tr>';
+setInterval(()=>{const el=document.getElementById('aClock');if(el)el.textContent=new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})},1000)
+}
+function rOrds(){const o=gO();document.getElementById('aCnt').textContent=o.length+' orders';document.getElementById('noO').style.display=o.length?'none':'block';document.getElementById('aOrds').innerHTML=o.map(x=>`<tr><td><strong style="color:var(--rose)">${x.id}</strong></td><td>${x.n}</td><td><a href="tel:${x.p}" style="color:var(--rose)">${x.p}</a></td><td><strong>₹${x.tot.toLocaleString()}</strong></td><td><span class="sbadge pend">${x.pay.toUpperCase()}</span></td><td>${x.st}</td><td><div style="display:flex;gap:5px"><button class="tb vw" onclick="vO('${x.id}')">View</button><button class="tb dl" onclick="dO('${x.id}')">Del</button></div></td></tr>`).join('')}
+function vO(id){const o=gO().find(x=>x.id===id);if(!o)return;document.getElementById('mBody').innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:16px"><div><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Customer</strong><div style="font-weight:600;color:var(--choco);margin-top:2px">${o.n}</div></div><div><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Phone</strong><div style="margin-top:2px"><a href="tel:${o.p}" style="color:var(--rose);font-weight:600">${o.p}</a></div></div><div><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Delivery</strong><div style="font-size:.86rem;margin-top:2px">${o.d} · ${o.ti||''}</div></div><div><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Payment</strong><div style="margin-top:2px"><span class="sbadge pend">${o.pay.toUpperCase()}</span></div></div><div style="grid-column:1/-1"><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Address</strong><div style="font-size:.84rem;margin-top:2px">${o.a||''}</div></div>${o.nt?`<div style="grid-column:1/-1"><strong style="font-size:.74rem;color:var(--txt-mu);text-transform:uppercase">Notes</strong><div style="font-size:.84rem;background:var(--gold-bg);padding:8px;border-radius:var(--r1);margin-top:2px">${o.nt}</div></div>`:''}</div><h4 style="font-family:var(--fd);margin-bottom:10px;color:var(--choco)">Items</h4>${o.items.map(i=>`<div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--cream);border-radius:var(--r1);margin-bottom:6px"><span style="font-size:1.6rem">${i.em}</span><div style="flex:1"><div style="font-weight:600;font-size:.84rem">${i.n}</div><div style="font-size:.74rem;color:var(--txt-mu)">Qty: ${i.q}</div></div><div style="font-family:var(--fd);font-weight:700;color:var(--rose-d)">₹${(i.p*i.q).toLocaleString()}</div></div>`).join('')}<div style="border-top:1.5px dashed var(--border);padding-top:11px;display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span style="font-family:var(--fd);font-size:1.3rem;color:var(--rose-d)">₹${o.tot.toLocaleString()}</span></div><div style="display:flex;gap:8px;margin-top:14px"><a href="tel:${o.p}" class="btn btn-p btn-sm"><i class="fas fa-phone"></i> Call</a><a href="https://wa.me/91${o.p.replace(/\D/g,'').slice(-10)}?text=Hi%20${encodeURIComponent(o.n)}!%20Your%20order%20${o.id}%20confirmed%20%F0%9F%8E%82" target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>`;document.getElementById('oMod').classList.add('open')}
+function dO(id){if(!confirm('Delete order?'))return;const o=gO().filter(x=>x.id!==id);localStorage.setItem('hcs_o',JSON.stringify(o));rOrds();iDash();T('Deleted','er')}
+function rCks(){const ex=JSON.parse(localStorage.getItem('hcs_ck')||'[]');document.getElementById('aCkG').innerHTML=[...D,...ex].map(c=>`<div style="background:var(--cream);border-radius:var(--r2);overflow:hidden;border:1.5px solid var(--border)"><div style="height:110px;background:linear-gradient(145deg,var(--cream-d),#fff8f0);display:flex;align-items:center;justify-content:center;font-size:3rem">${c.em}</div><div style="padding:11px"><div style="font-weight:700;font-size:.86rem;color:var(--choco);margin-bottom:3px">${c.name}</div><div style="font-family:var(--fd);font-size:1rem;color:var(--rose-d);font-weight:700;margin-bottom:8px">₹${c.price.toLocaleString()}</div><div style="display:flex;gap:6px"><button class="tb vw" onclick="eCk(${c.id})">Edit</button><button class="tb dl" onclick="dCk(${c.id})">Del</button></div></div></div>`).join('')}
+document.getElementById('aForm').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('aN').value.trim(),cat=document.getElementById('aCt').value,p=parseInt(document.getElementById('aPr').value),op=parseInt(document.getElementById('aOr').value)||null,em=document.getElementById('aEm').value||'🎂',tag=document.getElementById('aTg').value.trim(),desc=document.getElementById('aDe').value.trim();if(!n||!cat||!p){T('Fill required fields!','er');return}const eid=document.getElementById('eId').value;let ex=JSON.parse(localStorage.getItem('hcs_ck')||'[]');if(eid){const i=ex.findIndex(c=>c.id===parseInt(eid));if(i>=0)ex[i]={...ex[i],name:n,cat,price:p,op,em,tag,desc}}else ex.push({id:Date.now(),name:n,cat,price:p,op,em,tag,tt:'',r:5,rv:0,desc,sz:['500g','1kg'],dt:'Same day'});localStorage.setItem('hcs_ck',JSON.stringify(ex));T(eid?'Updated! ✅':'Added! 🎂','ok');rForm();aS('aC',null)});
+function eCk(id){const ex=JSON.parse(localStorage.getItem('hcs_ck')||'[]'),c=ex.find(x=>x.id===id);if(!c){T('Default cakes: edit in data only','er',4000);return}document.getElementById('eId').value=id;document.getElementById('aN').value=c.name;document.getElementById('aCt').value=c.cat;document.getElementById('aPr').value=c.price;document.getElementById('aOr').value=c.op||'';document.getElementById('aEm').value=c.em;document.getElementById('aTg').value=c.tag||'';document.getElementById('aDe').value=c.desc;document.getElementById('aFT').textContent='Edit Cake';aS('aA',null)}
+function dCk(id){const ex=JSON.parse(localStorage.getItem('hcs_ck')||'[]');if(!ex.find(c=>c.id===id)){T('Default cakes cannot be deleted here','er',4000);return}if(!confirm('Delete?'))return;localStorage.setItem('hcs_ck',JSON.stringify(ex.filter(c=>c.id!==id)));rCks();T('Deleted','er')}
+function rForm(){document.getElementById('aForm').reset();document.getElementById('eId').value='';document.getElementById('aFT').textContent='Add New Cake'}
+document.getElementById('oMod').addEventListener('click',e=>{if(e.target===document.getElementById('oMod'))document.getElementById('oMod').classList.remove('open')});
+</script>
+</body>
+</html>
